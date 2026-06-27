@@ -1,0 +1,341 @@
+/* style.css - Современный светлый дизайн с неоновыми цветами */
+
+/* Импорт современных шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+/* Сброс и базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7ff 0%, #e8eeff 50%, #f0f4ff 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Декоративные неоновые блики */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(0, 230, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 230, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 200, 0.05) 0%, transparent 70%);
+    animation: glowPulse 8s ease-in-out infinite alternate;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes glowPulse {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+    100% { transform: scale(1.1) rotate(3deg); opacity: 1; }
+}
+
+/* Заголовок с неоновым эффектом */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00d4ff 0%, #7b2ffc 50%, #ff00e5 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientMove 4s ease-in-out infinite alternate;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+    text-shadow:
+        0 0 40px rgba(0, 212, 255, 0.2),
+        0 0 80px rgba(123, 47, 252, 0.1);
+    letter-spacing: -0.02em;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Подзаголовок */
+p {
+    font-size: 1.15rem;
+    color: #4a4a6a;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Форма */
+form {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.06),
+        0 0 80px rgba(0, 212, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+    max-width: 580px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+form:hover {
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.08),
+        0 0 100px rgba(0, 212, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Текстовое поле */
+textarea {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #1a1a2e;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    resize: vertical;
+    min-height: 120px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #00d4ff;
+    box-shadow:
+        0 0 0 4px rgba(0, 212, 255, 0.15),
+        inset 0 2px 8px rgba(0, 0, 0, 0.02),
+        0 0 40px rgba(0, 212, 255, 0.05);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+textarea::placeholder {
+    color: #9999bb;
+    font-weight: 300;
+}
+
+/* Кнопка */
+button {
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #00d4ff 0%, #7b2ffc 100%);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    letter-spacing: 0.3px;
+    box-shadow:
+        0 8px 30px rgba(0, 212, 255, 0.25),
+        0 4px 15px rgba(123, 47, 252, 0.2);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow:
+        0 12px 40px rgba(0, 212, 255, 0.35),
+        0 6px 20px rgba(123, 47, 252, 0.3);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Результат */
+.result {
+    margin-top: 2rem;
+    padding: 2rem 2.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.06),
+        0 0 80px rgba(123, 47, 252, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    width: 100%;
+    max-width: 580px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.result h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #7b2ffc 0%, #ff00e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    position: relative;
+}
+
+.result h3::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #7b2ffc, #ff00e5, #7b2ffc);
+    background-size: 200% 100%;
+    border-radius: 3px;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+}
+
+.result p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #2a2a4a;
+    line-height: 1.8;
+    background: none;
+    backdrop-filter: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    font-weight: 400;
+    -webkit-text-fill-color: #2a2a4a;
+}
+
+/* Адаптивность */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
+        text-align: center;
+    }
+
+    form {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    textarea {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 0.9rem 1.8rem;
+    }
+
+    .result {
+        padding: 1.5rem;
+    }
+
+    .result h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Анимация появления для всей страницы */
+body > * {
+    animation: pageFadeIn 0.8s ease-out;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Скроллбар */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #7b2ffc, #ff00e5);
+}
